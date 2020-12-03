@@ -6,6 +6,13 @@ const initState = {
   ],
 };
 const categoryReducer = (state = initState, action) => {
-  return state;
+  switch (action.type) {
+    case "ADD_CATEGORY": {
+      // console.log(action.category);
+      return { ...state, categories: [...state.categories, action.category] };
+    }
+    default:
+      return state;
+  }
 };
 export default categoryReducer;

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { addCategory } from "./../store/actions/categoriesActions";
 
-export default class AddCategory extends Component {
+class AddCategory extends Component {
   constructor(props) {
     super(props);
     this.state = { categorie: "" };
@@ -15,6 +17,8 @@ export default class AddCategory extends Component {
   handleSubmit(event) {
     event.preventDefault();
     let id = uuidv4();
+    this.props.addCategory({ id: uuidv4(), text: this.state.categorie });
+    console.log(this.props);
   }
 
   render() {
@@ -33,3 +37,15 @@ export default class AddCategory extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    someData: state.cat.categories,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addCategory: (category) => dispatch(addCategory(category)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(AddCategory);
