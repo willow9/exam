@@ -46,7 +46,7 @@ class QuestionsList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.firestore.ordered.quest);
+  // console.log(state.firestore.ordered.quest);
   return {
     questions: state.firestore.ordered.quest,
   };

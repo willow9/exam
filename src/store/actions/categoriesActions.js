@@ -44,3 +44,19 @@ export const deleteQuestion = (id) => {
       });
   };
 };
+
+export const addQuestion = (question) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("quest")
+      .add({
+        title: question.title,
+        catId: question.categoryId,
+      })
+      .then(() => {})
+      .catch((err) => {
+        console.log("add question error: " + err);
+      });
+  };
+};
