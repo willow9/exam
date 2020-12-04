@@ -29,3 +29,18 @@ export const deleteCategory = (id) => {
       });
   };
 };
+export const deleteQuestion = (id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("quest")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("successfully deleted! ");
+      })
+      .catch((error) => {
+        console.log("Error removing document:", error);
+      });
+  };
+};

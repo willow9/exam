@@ -46,6 +46,7 @@ class CategoriesList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // console.log(state.firestore.ordered);
   return {
     categories: state.firestore.ordered.categories,
   };
@@ -59,6 +60,8 @@ export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([{ collection: "categories" }])
 )(CategoriesList);
+
+// firestoreConnect([{ collection: "categories", where: ["title", "==", "Magic"] }])
 
 // import { useSelector } from "react-redux";
 // import { useFirestoreConnect } from "react-redux-firebase";

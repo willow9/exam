@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import CategoriesPage from "./components/CategoriesPage";
 import Navbar from "./components/Navbar";
-import Questions from "./components/Questions";
+import QuestionsPage from "./components/QuestionsPage";
 import Exams from "./components/Exams";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Exams} />
         <Route exact path='/categories' component={CategoriesPage} />
-        <Route exact path='/questions' component={Questions} />
+        <Route exact path='/questions' component={QuestionsPage} />
       </Switch>
     </BrowserRouter>
   );
