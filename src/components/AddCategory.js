@@ -6,19 +6,18 @@ import { addCategory } from "./../store/actions/categoriesActions";
 class AddCategory extends Component {
   constructor(props) {
     super(props);
-    this.state = { categorie: "" };
+    this.state = { categoryTitle: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ categorie: event.target.value });
+    this.setState({ categoryTitle: event.target.value });
   }
   handleSubmit(event) {
     event.preventDefault();
-    let id = uuidv4();
-    this.props.addCategory({ id: uuidv4(), text: this.state.categorie });
-    console.log(this.props);
+    this.props.addCategory(this.state.categoryTitle);
+    this.setState({ categoryTitle: "" });
   }
 
   render() {
@@ -27,7 +26,12 @@ class AddCategory extends Component {
         <h1>Add Category</h1>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
-            <input className='form-control' onChange={this.handleChange} value={this.state.categorie}></input>
+            <input
+              className='form-control'
+              required
+              onChange={this.handleChange}
+              value={this.state.categoryTitle}
+            ></input>
           </div>
           <button type='submit' className='btn btn-primary'>
             Save
@@ -38,14 +42,9 @@ class AddCategory extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    someData: state.cat.categories,
-  };
-};
 const mapDispatchToProps = (dispatch) => {
   return {
-    addCategory: (category) => dispatch(addCategory(category)),
+    addCategory: (categoryTitle) => dispatch(addCategory(categoryTitle)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(AddCategory);
+export default connect(null, mapDispatchToProps)(AddCategory);

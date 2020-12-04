@@ -1,8 +1,8 @@
 const initState = {
   categories: [
-    { id: "kljskld323", text: "biology" },
-    { id: "klj", text: "mathematics" },
-    { id: "ld323", text: "magic" },
+    { id: "kljskld323", title: "biology" },
+    { id: "klj", title: "mathematics" },
+    { id: "ld323", title: "magic" },
   ],
 };
 const categoryReducer = (state = initState, action) => {
