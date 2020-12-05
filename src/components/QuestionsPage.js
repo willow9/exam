@@ -7,11 +7,11 @@ export default function QuestionsPage() {
     <div>
       <div className='container'>
         <div className='row'>
-          <div className='col-sm-4'>
+          <div className='col-sm-6'>
             <QuestionsList />
           </div>
 
-          <div className='col-sm-8'>
+          <div className='col-sm-6'>
             <AddQuestion />
           </div>
         </div>
