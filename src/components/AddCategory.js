@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addCategory } from "./../store/actions/categoriesActions";
+import { addCategory } from "../store/actions";
 
 class AddCategory extends Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class AddCategory extends Component {
           <div className='form-group'>
             <input
               className='form-control'
+              placeholder='Title'
               required
               onChange={this.handleChange}
               value={this.state.categoryTitle}

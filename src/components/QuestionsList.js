@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
-import { deleteQuestion } from "./../store/actions/categoriesActions";
+import { deleteQuestion } from "../store/actions";
 
 class QuestionsList extends Component {
   constructor(props) {

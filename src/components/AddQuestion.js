@@ -2,7 +2,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import React, { Component } from "react";
-import { addQuestion } from "./../store/actions/categoriesActions";
+import { addQuestion } from "../store/actions";
 
 class AddQuestion extends Component {
   constructor(props) {
@@ -31,19 +31,19 @@ class AddQuestion extends Component {
         <h1>Add Question</h1>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
-            <input
+            <textarea
               className='form-control'
-              placeholder='question'
+              placeholder='Question'
               required
               onChange={this.handleInpuChange}
               value={this.state.questionTitle}
-            ></input>
+              rows={2}
+            ></textarea>
           </div>
 
           <div className='form-group'>
-            <label>Category</label>
             <select className='form-control' onChange={this.handleSelectChange}>
-              <option></option>
+              <option>Category</option>
               {this.props.categories
                 ? this.props.categories.map((category) => (
                     <option key={category.id} value={category.id}>

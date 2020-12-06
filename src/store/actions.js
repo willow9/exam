@@ -7,10 +7,10 @@ export const addCategory = (category) => {
         title: category,
       })
       .then(() => {
-        // dispatch({ type: "ADD_CATEGORY", category });
+        // dispatch({ type: "ADD_CATEGORY", category })
       })
       .catch((err) => {
-        console.log("add category error: " + err);
+        //dispatch ADD_ERROR_MESSAGE
       });
   };
 };
@@ -23,21 +23,7 @@ export const deleteCategory = (id) => {
       .delete()
       .then(() => {
         console.log("successfully deleted! ");
-      })
-      .catch((error) => {
-        console.log("Error removing document:", error);
-      });
-  };
-};
-export const deleteQuestion = (id) => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
-    const firestore = getFirebase().firestore();
-    firestore
-      .collection("quest")
-      .doc(id)
-      .delete()
-      .then(() => {
-        console.log("successfully deleted! ");
+        //dispatch action
       })
       .catch((error) => {
         console.log("Error removing document:", error);
@@ -60,6 +46,23 @@ export const addQuestion = (question) => {
       });
   };
 };
+
+export const deleteQuestion = (id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("quest")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("successfully deleted! ");
+      })
+      .catch((error) => {
+        console.log("Error removing document:", error);
+      });
+  };
+};
+
 export const addExam = (exam) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirebase().firestore();

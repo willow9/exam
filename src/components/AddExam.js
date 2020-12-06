@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import { addExam } from "./../store/actions/categoriesActions";
+import { addExam } from "../store/actions";
 
 class AddExam extends Component {
   constructor(props) {
@@ -74,10 +74,11 @@ class AddExam extends Component {
               value={this.state.title}
             ></input>
           </div>
+          <h5>Select Questions</h5>
           {this.createDataStruct().map((category) => {
             return (
               <div>
-                <h5 key={category.title}>{category.title}</h5>
+                <h6 key={category.title}>{category.title}</h6>
                 {category.questions.map((q) => {
                   return (
                     <div className='form-check form-check-inline' key={q.qId}>
