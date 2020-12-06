@@ -60,3 +60,18 @@ export const addQuestion = (question) => {
       });
   };
 };
+export const addExam = (exam) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("exams")
+      .add({
+        title: exam.title,
+        questionIds: exam.questionIds,
+      })
+      .then(() => {})
+      .catch((err) => {
+        console.log("add exam error: " + err);
+      });
+  };
+};
