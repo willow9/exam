@@ -34,6 +34,8 @@ class QuestionsList extends Component {
               <th scope='col'></th>
               <th scope='col'>Question</th>
               <th scope='col'>Category</th>
+              <th scope='col'></th>
+              <th scope='col'></th>
             </tr>
           </thead>
           <tbody>
@@ -45,10 +47,14 @@ class QuestionsList extends Component {
                       <td>{question.title}</td>
                       <td>{this.findCategory(question.catId)}</td>
                       <td>
-                        <button className='btn btn-primary'>Edit</button>
+                        <button className='btn btn-outline-primary btn-sm edit-btn'>Edit</button>
                       </td>
                       <td>
-                        <button className='btn btn-danger' onClick={this.handleDelete} value={question.id}>
+                        <button
+                          className='btn btn-outline-danger btn-sm'
+                          onClick={this.handleDelete}
+                          value={question.id}
+                        >
                           Delete
                         </button>
                       </td>

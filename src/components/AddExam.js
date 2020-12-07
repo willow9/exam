@@ -62,7 +62,7 @@ class AddExam extends Component {
   render() {
     return (
       <div>
-        <h3>Add Exam</h3>
+        <div className='add-title'>Add Exam</div>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
             <input
@@ -74,7 +74,7 @@ class AddExam extends Component {
               value={this.state.title}
             ></input>
           </div>
-          <h5>Select Questions</h5>
+          <div className='add-title'> Select Questions</div>
           {this.createDataStruct().map((category) => {
             return (
               <div>
@@ -90,7 +90,7 @@ class AddExam extends Component {
               </div>
             );
           })}
-          <button type='submit' className='btn btn-primary'>
+          <button type='submit' className='btn btn-primary save-btn'>
             Save
           </button>
         </form>

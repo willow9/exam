@@ -22,7 +22,7 @@ class AddCategory extends Component {
   render() {
     return (
       <div>
-        <h1>Add Category</h1>
+        <div className='add-title'>Add Category</div>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
             <input
@@ -33,9 +33,11 @@ class AddCategory extends Component {
               value={this.state.categoryTitle}
             ></input>
           </div>
-          <button type='submit' className='btn btn-primary'>
-            Save
-          </button>
+          <div className='center-btn'>
+            <button type='submit' className='btn btn-primary save-btn'>
+              Save
+            </button>
+          </div>
         </form>
       </div>
     );

@@ -4,15 +4,41 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f7fafc;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+:root {
+  --green: #008b8b;
+}
 
 .navbar {
-  background-color: #008b8b;
+  background-color: var(--green);
   margin: auto;
+}
+
+.add-title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: var(--green);
+}
+.edit-btn {
+  border-color: var(--green);
+  color: var(--green);
+}
+.center-btn {
+  margin-left: 50%;
+}
+
+.save-btn {
+  background-color: var(--green);
+  border: unset;
+}
+.save-btn:hover {
+  background-color: #0e5858;
 }
 
 #navbar-wraper {

@@ -28,7 +28,7 @@ class AddQuestion extends Component {
   render() {
     return (
       <div>
-        <h1>Add Question</h1>
+        <div className='add-title'>Add Question</div>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
             <textarea
@@ -53,7 +53,7 @@ class AddQuestion extends Component {
                 : null}
             </select>
           </div>
-          <button type='submit' className='btn btn-primary'>
+          <button type='submit' className='btn btn-primary save-btn'>
             Save
           </button>
         </form>

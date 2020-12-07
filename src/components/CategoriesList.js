@@ -27,10 +27,10 @@ class CategoriesList extends Component {
                       <th>{this.props.categories.indexOf(category) + 1}</th>
                       <td>{category.title}</td>
                       <td>
-                        <button className='btn btn-primary'>Edit</button>
+                        <button className='btn btn-outline-primary btn-sm edit-btn'>Edit</button>
                       </td>
                       <td>
-                        <button className='btn btn-danger' onClick={this.handleDelete} value={category.id}>
+                        <button className='btn btn-outline-danger' onClick={this.handleDelete} value={category.id}>
                           Delete
                         </button>
                       </td>
