@@ -19,7 +19,7 @@ class QuestionsList extends Component {
   findCategory = (id) => {
     const rez = this.props.categories
       ? this.props.categories.find((c) => {
-          return c.id == id;
+          return c.id === id;
         })
       : null;
 
