@@ -78,3 +78,18 @@ export const addExam = (exam) => {
       });
   };
 };
+export const deleteExam = (id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("exams")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("successfully deleted! ");
+      })
+      .catch((error) => {
+        console.log("Error removing document:", error);
+      });
+  };
+};

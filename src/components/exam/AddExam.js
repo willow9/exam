@@ -69,7 +69,7 @@ class AddExam extends Component {
               required
               type='text'
               className='form-control'
-              placeholder='Exam Title'
+              placeholder='Title'
               onChange={this.handleTitleChange}
               value={this.state.title}
             ></input>

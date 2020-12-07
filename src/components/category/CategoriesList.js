@@ -12,7 +12,6 @@ class CategoriesList extends Component {
   }
 
   handleDelete = (e) => {
-    console.log(e.target.value);
     this.props.deleteCategory(e.target.value);
   };
   render() {

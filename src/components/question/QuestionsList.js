@@ -13,7 +13,6 @@ class QuestionsList extends Component {
   }
 
   handleDelete = (e) => {
-    console.log(e.target.value);
     this.props.deleteQuestion(e.target.value);
   };
   findCategory = (id) => {
