@@ -40,6 +40,11 @@ code {
 .save-btn:hover {
   background-color: #0e5858;
 }
+.category-section {
+  padding: 5px;
+  border-bottom: 0.4px dotted var(--green);
+  margin: 20px;
+}
 
 #navbar-wraper {
   margin-bottom: 50px;

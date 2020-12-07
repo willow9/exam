@@ -4,6 +4,8 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { deleteCategory } from "../../store/actions";
 
+//TODO implement restriction: can't delete category if there is questions in it
+
 class CategoriesList extends Component {
   constructor(props) {
     super(props);

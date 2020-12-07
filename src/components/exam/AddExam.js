@@ -9,6 +9,7 @@ class AddExam extends Component {
     super(props);
 
     //TODO uncheck all checkboxes after submit (maybe using refs)
+    //TODO don't render categories without questions
 
     this.state = { examQuestions: [], title: "" };
     this.togleCheckbox = this.togleCheckbox.bind(this);
@@ -77,7 +78,7 @@ class AddExam extends Component {
           <div className='add-title'> Select Questions</div>
           {this.createDataStruct().map((category) => {
             return (
-              <div>
+              <div className='category-section'>
                 <h6 key={category.title}>{category.title}</h6>
                 {category.questions.map((q) => {
                   return (
@@ -90,9 +91,11 @@ class AddExam extends Component {
               </div>
             );
           })}
-          <button type='submit' className='btn btn-primary save-btn'>
-            Save
-          </button>
+          <div className='center-btn'>
+            <button type='submit' className='btn btn-primary save-btn '>
+              Save
+            </button>
+          </div>
         </form>
       </div>
     );

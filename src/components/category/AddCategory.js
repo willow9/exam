@@ -33,11 +33,10 @@ class AddCategory extends Component {
               value={this.state.categoryTitle}
             ></input>
           </div>
-          <div className='center-btn'>
-            <button type='submit' className='btn btn-primary save-btn'>
-              Save
-            </button>
-          </div>
+
+          <button type='submit' className='btn btn-primary save-btn center-btn'>
+            Save
+          </button>
         </form>
       </div>
     );
