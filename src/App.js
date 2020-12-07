@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import CategoriesPage from "./components/CategoriesPage";
+import CategoriesPage from "./components/category/CategoriesPage";
 import Navbar from "./components/Navbar";
-import QuestionsPage from "./components/QuestionsPage";
-import ExamsPage from "./components/ExamsPage";
+import QuestionsPage from "./components/question/QuestionsPage";
+import ExamsPage from "./components/exam/ExamsPage";
 
 function App() {
   return (

@@ -17,6 +17,7 @@ class ExamsList extends Component {
     const questions = this.props.questions ? this.props.questions : [];
 
     let examsWithQuestions = [];
+
     exams.forEach((e) => {
       let exam = {};
       exam.title = e.title;
@@ -32,7 +33,7 @@ class ExamsList extends Component {
       exam.questions = quest;
       examsWithQuestions.push(exam);
     });
-    console.log(examsWithQuestions);
+
     return examsWithQuestions;
   }
 
