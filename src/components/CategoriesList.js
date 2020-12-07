@@ -46,7 +46,6 @@ class CategoriesList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state.firestore.ordered);
   return {
     categories: state.firestore.ordered.categories,
   };

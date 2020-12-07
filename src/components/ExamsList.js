@@ -1,49 +1,89 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
-export default class ExamsList extends Component {
+//TODO implement exam editing and removing funcionality, center text in td's verticaly for exams field
+
+class ExamsList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.createDataStruct = this.createDataStruct.bind(this);
+  }
+
+  createDataStruct() {
+    const exams = this.props.exams ? this.props.exams : [];
+    const questions = this.props.questions ? this.props.questions : [];
+
+    let examsWithQuestions = [];
+    exams.forEach((e) => {
+      let exam = {};
+      exam.title = e.title;
+      let quest = [];
+      e.questionIds.forEach((a) => {
+        questions.forEach((q) => {
+          if (q.id === a) {
+            quest.push({ qTitle: q.title, qId: q.id });
+          }
+          return quest;
+        });
+      });
+      exam.questions = quest;
+      examsWithQuestions.push(exam);
+    });
+    console.log(examsWithQuestions);
+    return examsWithQuestions;
+  }
+
   render() {
     return (
       <table className='table'>
         <thead>
           <tr>
-            <th scope='col'>#</th>
-            <th scope='col'>First</th>
-            <th scope='col'>Last</th>
-            <th scope='col'>Handle</th>
+            <th scope='col'>Exam</th>
+            <th scope='col'>Questions</th>
+            <th scope='col'></th>
+            <th scope='col'></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope='row'>1</th>
-            <td>Mark</td>
-            <td>
-              <ul className='list-group'>
-                <li className='list-group-item disabled'>Cras justo odio</li>
-                <li className='list-group-item'>
-                  Dapibus ac facilisis in Dapibus ac facilisis in Dapibus ac facilisis in Dapibus ac facilisis in
-                  22222222222222222222222222222 Dapibus ac facilisis in
-                </li>
-                <li className='list-group-item'>Morbi leo risus</li>
-                <li className='list-group-item'>Porta ac consectetur ac</li>
-                <li className='list-group-item'>Vestibulum at eros</li>
-              </ul>
-            </td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope='row'>2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope='row'>3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {this.createDataStruct().map((item) => {
+            return (
+              <tr key={item.title}>
+                <td>{item.title}</td>
+                <td>
+                  <ul className='list-group'>
+                    {item.questions.map((q) => {
+                      return <li key={q.qId}>{q.qTitle}</li>;
+                    })}
+                  </ul>
+                </td>
+                <td>
+                  <button className='btn btn-outline-primary btn-sm edit-btn'>Edit</button>
+                </td>
+                <td>
+                  <button className='btn btn-outline-danger btn-sm'>Delete</button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    questions: state.firestore.ordered.quest,
+    exams: state.firestore.ordered.exams,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([{ collection: "exams" }, { collection: "quest" }])
+)(ExamsList);
