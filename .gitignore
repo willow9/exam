@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.firebaserc
+.eslintcache
+firebase.json
+.firebase/hosting.YnVpbGQ.cache
+.eslintcache
+.vscode
+.firebase
