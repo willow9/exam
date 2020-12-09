@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { deleteQuestion } from "../../store/actions";
+import { fetchQuestions } from "../../store/questionActions";
 
 class QuestionsList extends Component {
   constructor(props) {
@@ -24,6 +25,12 @@ class QuestionsList extends Component {
 
     return rez ? rez.title : "N/A";
   };
+
+  componentDidMount() {
+    const { fetchQuestions } = this.props;
+
+    fetchQuestions();
+  }
   render() {
     return (
       <div>
@@ -70,16 +77,15 @@ class QuestionsList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    questions: state.firestore.ordered.quest,
     categories: state.firestore.ordered.categories,
+    questions: state.questions.questions,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteQuestion: (id) => dispatch(deleteQuestion(id)),
+    fetchQuestions: () => dispatch(fetchQuestions()),
   };
 };
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect([{ collection: "categories" }, { collection: "quest" }])
-)(QuestionsList);
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionsList);
